@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Jost", sans-serif;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+  border-radius: 5px;
+}
+
+#prevBtn {
+  left: 10px;
+}
+
+#nextBtn {
+  right: 10px;
+}
+
+.nav-button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.back-button {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding: 10px 20px;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 1000;
+}
+
+.back-button:hover {
+  background-color: #c47e7e;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Smooth transition for the slider */
+.slider-wrapper {
+  position: relative;
+  width: 80%;
+  height: 90vh; /* Adjust height as needed */
+  margin: 0 auto; /* Center the slider horizontally */
+  overflow: hidden;
+  display: flex;
+  align-items: center; /* Center images vertically */
+  justify-content: center; /* Center images horizontally */
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; /* Smooth fade-in/out effect */
+}
+
+.slider.active {
+  opacity: 1; /* Show the active slide */
+  z-index: 1; /* Ensure the active slide is on top */
+}
+
+.slider-img {
+  max-width: 100%; /* Ensure the image fits within the container */
+  max-height: 100%; /* Ensure the image fits within the container */
+  object-fit: contain; /* Maintain aspect ratio and ensure the entire image is visible */
+  display: block;
+  margin: auto; /* Center the image horizontally and vertically */
+}
+
+.slider-wrapper img {
+  width: 80vh;  /* Make images take the full width of the slider */
+  height: 90vh;  /* Make images take the full height of the slider */
+  object-fit: cover;  /* Make sure the image covers the entire area of the slider */
+  border-radius: 6px;
+  filter: brightness(50%);
+  
+}
+
+.slider-img {
+  width: 90px;  /* This ensures the image takes the full width of its container */
+  height: 100px;  /* Ensures the image takes full height of its container */
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.5s ease;
+  align-items: center;
+  justify-content: center;
+}
+.slider-img:hover {
+  filter: brightness(100%);
+  transform: scale(1.1);
+}
+
+.slider-wrapper .slider-container .slider.active {
+  opacity: 1;
+  position: relative;
+}
+.slider-wrapper .slider-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90vh;
+  height: 100vh; /* Adjust based on your images */
+}   
+.slider-wrapper .slider-container .slider:first-child,
+.slider-wrapper .slider-container .slider:last-child {
+  height: 400px;
+}
+
+.slider-wrapper .slider-container .slider:nth-child(2),
+.slider-wrapper .slider-container .slider:nth-child(6) {
+  height: 500px;
+}
+.slider-wrapper .slider-container .slider:nth-child(3),
+.slider-wrapper .slider-container .slider:nth-child(4),
+.slider-wrapper .slider-container .slider:nth-child(5) {
+  height: 600px;
+}
+
+h1 {
+  font-family: "Jost", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) rotate(270deg);
+  transition: 0.5s ease;
+}
+.details {
+  position: absolute;
+  bottom: 43px;
+  left: 43px;
+}
+.details h2 {
+  font-family: "Jost", sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 42px;
+  text-align: left;
+  color: #fff;
+  text-transform: uppercase;
+  transition: 0.7s ease;
+  display: none;
+}
+.details p {
+  font-family: "Jost", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 33px;
+  text-align: left;
+  color: #fff;
+  text-transform: uppercase;
+  transition: 0.7s ease;
+  display: none;
+}
+
+.slider.active {
+  opacity: 1;
+  position: relative;
+}
+
+.slider-img.active {
+  width: 300px !important;
+  height: 300px !important;
+  filter: brightness(100%);
+}
+.slider.active h1 {
+  display: none;
+}
+.slider.active .details p,
+.slider.active .details h2 {
+  display: block;
+}
